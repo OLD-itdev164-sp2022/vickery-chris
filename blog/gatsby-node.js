@@ -1,8 +1,7 @@
-const path = requre(`path`)
+const path = require(`path`)
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPages } = actions
-
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -19,10 +18,11 @@ exports.createPages = ({ graphql, actions }) => {
       if (result.errors) {
         reject(result.errors)
       }
-      result.data.allContentfulBlogPosts.edges.forEach(edge => {
-        createPages({
+
+      result.data.allContentfulBlogPost.edges.forEach(edge => {
+        createPage({
           path: edge.node.slug,
-          component: path.resolve(`./scr/templates/blog-post.js`),
+          component: path.resolve(`./src/templates/blog-post.js`),
           context: {
             slug: edge.node.slug,
           },
@@ -32,15 +32,3 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 }
-
-/*
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
-}
-*/

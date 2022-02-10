@@ -6,9 +6,9 @@ const BlogPost = ({ data }) => {
   const { title } = data.contentfulBlogPost
 
   return (
-    <layout>
+    <Layout>
       <h1>{title}</h1>
-    </layout>
+    </Layout>
   )
 }
 
