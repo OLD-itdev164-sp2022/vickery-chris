@@ -1,5 +1,5 @@
-require("dotevn").config({
-  path: `env.$(process.env.NODE_ENV)`,
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `${process.env.SPACE_ID}`,
-        accessToken: `${porcess.env.ACCESS_TOKEN}`,
+        accessToken: `${process.env.ACCESS_TOKEN}`,
       },
     },
     {
