@@ -4,12 +4,12 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Outer = styled.header`
-  background: rebeccapurple;
+  background: ${props => props.theme.header.backgroundColor};
   margin-bottom: 1.45rem;
 `
 
 const Inner = styled.div`
-  margin: 0px auto;
+  margin: 0px;
   max-width: 960px;
   padding: 1.45rem 1.0875rem;
 `
