@@ -5,13 +5,14 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { List, ListItem } from "../components/List"
 
 const IndexPage = ({ data }) => (
   <Layout>
     <Seo title="Home" />
-    <ul>
+    <List width={[1, 1 / 2, 2 / 3]} p={2}>
       {data.allContentfulBlogPost.edges.map(edge => (
-        <li>
+        <ListItem p={3}>
           <Link to={edge.node.slug} key={edge.node.id}>
             {edge.node.title}
           </Link>
@@ -20,9 +21,9 @@ const IndexPage = ({ data }) => (
             alt = "test"
           </div>
           <div>{edge.node.body.childMarkdownRemark.excerpt}</div>
-        </li>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   </Layout>
 )
 
@@ -45,7 +46,7 @@ export const query = graphql`
             gatsbyImageData(
               layout: CONSTRAINED
               placeholder: BLURRED
-              width: 300
+              width: 600
             )
           }
         }
