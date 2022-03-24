@@ -12,6 +12,8 @@ const Outer = styled.header`
 
 const Inner = styled.div`
   margin: 0px;
+  //messed with header
+
   max-width: 99%;
   padding: 1.45rem 1.0875rem;
 `
