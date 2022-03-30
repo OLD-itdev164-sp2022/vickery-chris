@@ -4,6 +4,8 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { H1 } from "../Heading"
 import { Section } from "../Section"
+import { Search } from "styled-icons/feather"
+import { IconButton } from "../Button"
 
 const Outer = styled.header`
   background: ${props => props.theme.header.backgroundColor};
@@ -39,7 +41,9 @@ const Header = ({ siteTitle }) => (
             <StyledLink to="/">{siteTitle}</StyledLink>
           </H1>
         </Section>
-        <Section width={1 / 12}>Search</Section>
+        <Section width={1 / 12}>
+          <IconButton icon={<Search />} />
+        </Section>
       </Section>
     </Inner>
   </Outer>
