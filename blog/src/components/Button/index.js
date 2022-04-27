@@ -1,2 +1,3 @@
+export { SearchButton } from "./SearchButton"
+
 export { IconButton } from "./IconButton"
-export { SeachButton } from "./SeachButton"
