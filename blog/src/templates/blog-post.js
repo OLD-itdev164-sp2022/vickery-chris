@@ -2,12 +2,21 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { H1 } from "../components/Heading"
+import { Image } from "rebass"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const BlogPost = ({ data }) => {
-  const { title, body } = data.contentfulBlogPost
+  const { title, body, heroImage } = data.contentfulBlogPost
 
   return (
     <Layout>
+      <p>hihi</p>
+      <Img
+        fixed={heroImage.GatsbyImageData}
+        objectFit="cover"
+        objectPosition="50% 50%"
+      />
+      <GatsbyImage image={heroImage.GatsbyImageData} />
       <H1>{title}</H1>
       <div
         dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}
@@ -27,6 +36,9 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      heroImage {
+        gatsbyImageData(layout: CONSTRAINED, width: 960)
       }
     }
   }
